@@ -33,6 +33,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
     public void onBindViewHolder(MyAdapter.MyViewHolder holder, int position) {
 
         holder.mTextView.setText(mData.get(position));
+        holder.mTextView2.setVisibility(View.VISIBLE);
+        holder.mTextView2.setOnClickListener(v -> {
+            onItemDelete(holder);
+        });
     }
 
     @Override
@@ -82,10 +86,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView mTextView;
+        private TextView mTextView2;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             mTextView = itemView.findViewById(R.id.tv1);
+            mTextView2 = itemView.findViewById(R.id.iv_del);
         }
     }
 
